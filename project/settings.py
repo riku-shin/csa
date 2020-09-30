@@ -80,20 +80,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangogirls',
-        'USER': 'name',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'scraping',
+        'USER': 'scraper',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '',
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'scraping',
-#        'USER': 'scraper',
-#        'PASSWORD': 'password',
-#        'HOST': 'localhost',
-#        'PORT': '3306',
-#        'OPTIONS': {
-#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         }
     }
 }
@@ -137,6 +131,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASE['default'].update(db_from_env)
